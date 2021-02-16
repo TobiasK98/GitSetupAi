@@ -1,0 +1,26 @@
+<annotation>
+	<folder>Bilder2</folder>
+	<filename>70_20.jpeg</filename>
+	<path>/home/tobias/Studium/GdKi/Abschlussprojekt/Bilder2/70_20.jpeg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>954</width>
+		<height>636</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>70</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>189</xmin>
+			<ymin>75</ymin>
+			<xmax>509</xmax>
+			<ymax>419</ymax>
+		</bndbox>
+	</object>
+</annotation>

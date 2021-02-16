@@ -1,0 +1,26 @@
+<annotation>
+	<folder>Bilder2</folder>
+	<filename>aufgehoben_14.jpeg</filename>
+	<path>/home/tobias/Studium/GdKi/Abschlussprojekt/Bilder2/aufgehoben_14.jpeg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>570</width>
+		<height>380</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>aufgehoben</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>285</xmin>
+			<ymin>36</ymin>
+			<xmax>350</xmax>
+			<ymax>98</ymax>
+		</bndbox>
+	</object>
+</annotation>

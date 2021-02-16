@@ -1,0 +1,26 @@
+<annotation>
+	<folder>Bilder2</folder>
+	<filename>80_8.jpeg</filename>
+	<path>/home/tobias/Studium/GdKi/Abschlussprojekt/Bilder2/80_8.jpeg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>400</width>
+		<height>300</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>80</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>108</xmin>
+			<ymin>114</ymin>
+			<xmax>184</xmax>
+			<ymax>187</ymax>
+		</bndbox>
+	</object>
+</annotation>
