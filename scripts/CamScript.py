@@ -20,7 +20,7 @@ while "models" in pathlib.Path.cwd().parts:
 def load_images(): 
 
     image_list = []
-    for filename in glob.glob('/content/gdrive/MyDrive/Speed_signs/*.jpg'):
+    for filename in glob.glob('/content/Tensorflow/Speed_signs/*.jpg'):
         im=Image.open(filename)
         image_list.append((filename, im))
     return image_list
