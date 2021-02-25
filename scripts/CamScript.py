@@ -16,7 +16,7 @@ from PIL import Image
 while "models" in pathlib.Path.cwd().parts:
     os.chdir('..')
 
-# function for loading our speed sign pictures for displaying the current speed
+# Function for loading our speed sign pictures for displaying the current speed
 def load_images(): 
 
     image_list = []
@@ -67,6 +67,7 @@ def run_inference_for_single_image(model, image):
 
     # Handle models with masks:
     if 'detection_masks' in output_dict:
+
         # Reframe the the bbox mask to the image size.
         detection_masks_reframed = utils_ops.reframe_box_masks_to_image_masks(
             output_dict['detection_masks'], output_dict['detection_boxes'],
@@ -157,7 +158,7 @@ def run_inference(model, cap):
 
             image_np = cv2.cvtColor(image_np, cv2.COLOR_BGR2RGB)
 
-            # getting the png for our prediction
+            # Getting the png for our prediction
             cam_im = Image.fromarray(image_np)
             for j in range(len(class_names)):
                 for k in range(len(image_list)):
@@ -166,14 +167,14 @@ def run_inference(model, cap):
                         speed = speed.resize((100, 100))
                         break
             
-            # pasting the current speed into our picture(numpyarray)
+            # Pasting the current speed into our picture(numpyarray)
             if(speed):
                 cam_im.paste(speed,(0,0))
 
             image_np = np.array(cam_im)
             image_np = cv2.cvtColor(image_np, cv2.COLOR_RGB2BGR)
             
-            # writing our video frame by frame into a new file
+            # Writing our video frame by frame into a new file
             out.write(image_np)
 
             if cv2.waitKey(25) & 0xFF == ord('q'):
