@@ -79,10 +79,11 @@ def run_inference_for_single_image(model, image):
 
 
 def show_inference(model, frame):
+
     # take the frame from webcam feed and convert that to array
     image_np = np.array(frame)
-    # Actual detection.
 
+    # Actual detection.
     output_dict = run_inference_for_single_image(model, image_np)
     
     detect_speed(output_dict)
@@ -104,7 +105,8 @@ def show_inference(model, frame):
 # Now we open the webcam and start detecting objects
 import cv2
 
-cap = cv2.VideoCapture("/content/gdrive/MyDrive/TestVideo7.mp4")
+# insert 0 for webcam and a path for a video
+cap = cv2.VideoCapture(0)
 
 #create VideoWriter Object
 out = cv2.VideoWriter('outpy.avi',cv2.VideoWriter_fourcc('M','J','P','G'), 30, (1280, 720))
