@@ -7,7 +7,6 @@ import matplotlib.pyplot as plt
 from object_detection.utils import ops as utils_ops
 from object_detection.utils import label_map_util
 from object_detection.utils import visualization_utils as vis_util
-from google.colab.patches import cv2_imshow
 from operator import itemgetter, attrgetter
 from PIL import Image
 
@@ -25,16 +24,15 @@ def load_images():
         image_list.append((filename, im))
     return image_list
         
-
+# Function for loading our model via a given path
 def load_model(model_name):
     # Provide the path where the trained model directory is located
-    model_dir = "/content/gdrive/MyDrive/" + model_name
+    model_dir = "/content/Tensorflow/workspace/training_demo/exported-models/" + model_name
     model_dir = pathlib.Path(model_dir) / "saved_model"
 
     model = tf.saved_model.load(str(model_dir))
 
     return model
-
 
 PATH_TO_LABELS = '/content/Tensorflow/workspace/training_demo/annotations/label_map.pbtxt'
 category_index = label_map_util.create_category_index_from_labelmap(PATH_TO_LABELS, use_display_name=True)
@@ -77,30 +75,6 @@ def run_inference_for_single_image(model, image):
         output_dict['detection_masks_reframed'] = detection_masks_reframed.numpy()
 
     return output_dict
-
-
-def show_inference(model, frame):
-
-    # take the frame from webcam feed and convert that to array
-    image_np = np.array(frame)
-
-    # Actual detection.
-    output_dict = run_inference_for_single_image(model, image_np)
-    
-    detect_speed(output_dict)
-
-    # Visualization of the results of a detection.
-    vis_util.visualize_boxes_and_labels_on_image_array(
-        image_np,
-        output_dict['detection_boxes'],
-        output_dict['detection_classes'],
-        output_dict['detection_scores'],
-        category_index,
-        instance_masks=output_dict.get('detection_masks_reframed', None),
-        use_normalized_coordinates=True,
-        line_thickness=5)
-
-    return (image_np)
 
 
 # Now we open the webcam and start detecting objects
@@ -173,6 +147,9 @@ def run_inference(model, cap):
 
             image_np = np.array(cam_im)
             image_np = cv2.cvtColor(image_np, cv2.COLOR_RGB2BGR)
+                
+            #uncomment the cell below if you want to use the webcam    
+            #cv2.imshow('object_detection', cv2.resize(image_np, (800, 600)))
             
             # Writing our video frame by frame into a new file
             out.write(image_np)
